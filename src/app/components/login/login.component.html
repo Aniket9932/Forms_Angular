@@ -1,0 +1,33 @@
+<div class="">
+  <div class="Card-box">
+    <div class="text-center">Login</div>
+    <p>Enter your credentials here</p>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <input
+          type="text"
+          class=""
+          placeholder="Enter Name"
+          (input)="onEmailChange($event)"
+          [value]="email"
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          class=""
+          placeholder="Enter Name"
+          (input)="onPasswordChange($event)"
+        />
+      </div>
+      <button type="submit">Submit</button>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+
+    <!-- <form #userlogin="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      <input type="text" name="email" placeholder="email" />
+      <input type="password" name="password" placeholder="password" />
+      <button type="submit">Submit</button>
+    </form> -->
+  </div>
+</div>
