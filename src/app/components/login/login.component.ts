@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,30 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email: string = '';
-  password: string = '';
-  errorMessage: string = '';
+  constructor(private router: Router) {}
 
-  onEmailChange(event: any) {
-    // const emailCheck =
-    // const regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
-    // if(regex.match())
-
-    this.email = event.target.value;
-  }
-  onPasswordChange(event: any) {
-    this.password = event.target.value;
-  }
+  errorMessage = '';
+  public user = {
+    name: '',
+    password: '',
+  };
 
   onSubmit() {
-    // event.preventDefault();
-    if (!this.email || !this.password) {
+    if (!this.user.name || !this.user.password) {
       this.errorMessage = 'Mandatory Fields';
       return;
     }
 
     this.errorMessage = '';
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
+    console.log(this.user);
+    this.router.navigate(['/registration']);
   }
 }

@@ -2,25 +2,22 @@
   <div class="Card-box">
     <div class="text-center">Login</div>
     <p>Enter your credentials here</p>
-    <form (ngSubmit)="onSubmit()">
-      <div>
-        <input
-          type="text"
-          class=""
-          placeholder="Enter Name"
-          (input)="onEmailChange($event)"
-          [value]="email"
-        />
-      </div>
-      <div>
-        <input
-          type="password"
-          class=""
-          placeholder="Enter Name"
-          (input)="onPasswordChange($event)"
-        />
-      </div>
-      <button type="submit">Submit</button>
+    <p>{{ user | json }}</p>
+    <form #details="ngForm" (ngSubmit)="onSubmit()">
+      <input
+        type="text"
+        [(ngModel)]="user.name"
+        name="name"
+        placeholder="Name"
+      /><br />
+      <input
+        type="password"
+        [(ngModel)]="user.password"
+        name="password"
+        placeholder="password"
+      /><br />
+      <!-- <span *ngIf="errorMessage">Field Should not be empty</span> -->
+      <button type="submit">Submit</button><br />
       <p *ngIf="errorMessage">{{ errorMessage }}</p>
     </form>
 
