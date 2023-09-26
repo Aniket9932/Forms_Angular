@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  // dataDetails = {};
+  dataDetails = '';
+  constructor(private user: LoginService) {
+    // console.log('Data:', this.user.getData());
+    // this.dataDetails = this.user.getData().name;
+    user.getData().subscribe((data) => {
+      console.log(data);
+    });
+  }
+
   email: string = '';
   password: string = '';
   errorMessage: string = '';

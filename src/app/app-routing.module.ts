@@ -5,6 +5,11 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./components/admin/admin.module').then((x) => x.AdminModule),
+  },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
