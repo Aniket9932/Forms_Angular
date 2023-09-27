@@ -1,0 +1,44 @@
+.parent-container {
+  height: 100%;
+  padding: 5%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.outline {
+  margin: 10%;
+}
+
+.first-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.second-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.third-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.forth-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.slider-container {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.spacer {
+  width: 10px;
+}
