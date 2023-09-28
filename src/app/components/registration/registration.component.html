@@ -1,73 +1,88 @@
 <div class="outline">
   <div class="parent-container">
-    <div class="first-row">
-      <mat-form-field>
-        <mat-label>Location</mat-label>
-        <mat-select>
-          <mat-option value="Location 1">First option</mat-option>
-          <mat-option value="Location 2">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Batch-type</mat-label>
-        <mat-select>
-          <mat-option value="Location 1">First option</mat-option>
-          <mat-option value="Location 2">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>sub-type</mat-label>
-        <mat-select>
-          <mat-option value="Location 1">First option</mat-option>
-          <mat-option value="Location 2">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>form-type</mat-label>
-        <mat-select>
-          <mat-option value="Location 1">First option</mat-option>
-          <mat-option value="Location 2">Second option</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="second-row">
-      <mat-form-field>
-        <mat-label>Year</mat-label>
-        <input matInput />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Julian</mat-label>
-        <input matInput />
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Tole No.</mat-label>
-        <input matInput />
-      </mat-form-field>
-      <div>
-        <mat-checkbox>CBH</mat-checkbox>
-        <mat-checkbox>KFP</mat-checkbox>
+    <form [formGroup]="metaData" (submit)="scan()">
+      <div class="first-row">
+        <mat-form-field>
+          <mat-label>Location</mat-label>
+          <mat-select formControlName="location">
+            <mat-option value="Location 1">First option</mat-option>
+            <mat-option value="Location 2">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Batch-type</mat-label>
+          <mat-select formControlName="batchType">
+            <mat-option value="Option 1">First option</mat-option>
+            <mat-option value="Option 2">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field
+          *ngIf="metaData.controls['batchType'].value === 'Option 2'"
+        >
+          <mat-label>sub-type</mat-label>
+          <mat-select formControlName="subType">
+            <mat-option value="Location 1">First option</mat-option>
+            <mat-option value="Location 2">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>form-type</mat-label>
+          <mat-select formControlName="formType">
+            <mat-option value="Location 1">First option</mat-option>
+            <mat-option value="Location 2">Second option</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-    </div>
-    <mat-form-field>
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-    <div class="third-row">
-      <div>
-        <mat-checkbox>Hold batch</mat-checkbox>
+      <div class="second-row">
+        <mat-form-field>
+          <mat-label>Year</mat-label>
+          <input formControlName="year" matInput />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Julian</mat-label>
+          <input formControlName="julian" matInput />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Tole No.</mat-label>
+          <input formControlName="toteNo" matInput />
+        </mat-form-field>
+        <div>
+          <mat-checkbox formControlName="cbh">CBH</mat-checkbox>
+          <mat-checkbox formControlName="kfp">KFP</mat-checkbox>
+        </div>
       </div>
-      <div class="slider-container">
-        <div><mat-label>Brighten Image</mat-label></div>
+      <mat-form-field>
+        <mat-label>Textarea</mat-label>
+        <textarea formControlName="note" matInput></textarea>
+      </mat-form-field>
+      <div class="third-row">
+        <div>
+          <mat-checkbox formControlName="holdBatch">Hold batch</mat-checkbox>
+        </div>
+        <div class="slider-container">
+          <div><mat-label>Brighten Image</mat-label></div>
+          <div class="spacer"></div>
+          <mat-slider>
+            <input formControlName="brightenImage" matSliderThumb />
+          </mat-slider>
+        </div>
+      </div>
+      <div class="forth-row">
+        <button type="file" mat-raised-button color="primary">
+          Upload
+          <input type="file" (change)="fileUpload($event)" />
+        </button>
+        <div>{{fileName || "No file Selected"}}</div>
         <div class="spacer"></div>
-        <mat-slider>
-          <input matSliderThumb />
-        </mat-slider>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="metaData.invalid"
+        >
+          Scan
+        </button>
       </div>
-    </div>
-    <div class="forth-row">
-      <button mat-raised-button color="primary">Upload</button>
-      <div class="spacer"></div>
-      <button mat-raised-button color="primary">Scan</button>
-    </div>
+    </form>
   </div>
 </div>
