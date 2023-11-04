@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegistrationComponent,
     NotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

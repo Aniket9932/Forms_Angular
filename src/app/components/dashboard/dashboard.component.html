@@ -1,0 +1,27 @@
+<div>
+  <div>
+    <h1>Dashboard</h1>
+  </div>
+  <div>
+    <h2>{{ userRole }}</h2>
+  </div>
+
+  <div
+    class="view-access"
+    *ngIf="
+      userRole === 'admin' || userRole === 'member' || userRole === 'nurse'
+    "
+  >
+    <div>
+      View Details
+
+      <h3>Name : {{ userName }}</h3>
+    </div>
+  </div>
+  <div class="edit-access" *ngIf="userRole === 'admin'">
+    <p>Edit Details</p>
+  </div>
+  <div class="add-access" *ngIf="userRole === 'admin'">
+    <p>Add Member Details</p>
+  </div>
+</div>

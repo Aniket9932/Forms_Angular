@@ -16,6 +16,14 @@
         name="password"
         placeholder="password"
       /><br />
+      <div>
+        <select [(ngModel)]="user.role" name="role" id="role">
+          <option value="admin">Admin</option>
+          <option value="member">Member</option>
+          <option value="nurse">Nurse</option>
+        </select>
+      </div>
+      <!-- <input type="role" [(ngModel)]="user.role" name="role" /><br /> -->
       <!-- <span *ngIf="errorMessage">Field Should not be empty</span> -->
       <button type="submit">Submit</button><br />
       <p *ngIf="errorMessage">{{ errorMessage }}</p>

@@ -13,6 +13,7 @@ export class LoginComponent {
   public user = {
     name: '',
     password: '',
+    role: 'admin',
   };
 
   onSubmit() {
@@ -23,6 +24,9 @@ export class LoginComponent {
 
     this.errorMessage = '';
     console.log(this.user);
-    this.router.navigate(['/registration']);
+    sessionStorage.setItem('name', this.user.name);
+    sessionStorage.setItem('password', this.user.password);
+    sessionStorage.setItem('role', this.user.role);
+    this.router.navigate(['/dashboard']);
   }
 }
