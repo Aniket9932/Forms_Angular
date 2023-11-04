@@ -1,23 +1,29 @@
 .parent-container {
+  width: 100%;
   height: 100%;
   padding: 5%;
   border: 1px solid;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .outline {
   margin: 10%;
 }
 
+.parent-first-row {
+  flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
 .first-row {
+  column-gap: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .second-row {
+  column-gap: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -44,9 +50,15 @@
 }
 
 input[type="file"] {
-  font-size: 100px;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
+  display: none;
+}
+
+.full-length-area {
+  width: 95%;
+}
+
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
